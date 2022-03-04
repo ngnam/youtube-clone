@@ -63,24 +63,26 @@ aside {
 
 .item {
     cursor: pointer;
-    transition: all ease-in 1.5s;
 }
 
 .grid-item {
     position: relative;
 }
 
-#preview {
+#preview > #item-preview {
     position: absolute;
-    top: 0;
-    width: 100%;
+    display: none;
+}
+
+.item.preview {
+    transition: all .3s ease-in-out;
 }
 
 .item.preview:hover {
     --bs-bg-opacity: 1;
     --bs-white-rgb: 255, 255, 255;
     background-color: rgba(var(--bs-white-rgb),var(--bs-bg-opacity))!important;
-    transform: scale(1.15);
+    transform: scale(1.1);
     z-index: 99;
 }
 
@@ -95,7 +97,7 @@ aside {
     height: 0;
     display: none;
     visibility: hidden;
-    transition: all 0.5s ease-in-out;
+    transition: all 0.3s ease-in-out;
 }
 
 .item-actions > button {
