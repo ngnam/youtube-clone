@@ -14,7 +14,58 @@ function onView(e) {
     itemPreview.style.left = `${offsetLeft}px`;
 };
 
+var translateX = 0;
+
 function onMouseleave(e) {
     const itemPreview = document.getElementById('item-preview');
     itemPreview.style.display = 'none';
 }
+
+function dragStart(event) {
+    translateX = 0;
+    event.dataTransfer.setData("clientX", event.clientX);
+    event.dataTransfer.setData("offsetX", event.offsetX);
+}
+
+function dragging(event) {
+    event.dataTransfer.setData("clientX", event.clientX);
+    event.dataTransfer.setData("offsetX", event.offsetX);
+}
+
+function allowDrop(event) {
+    event.preventDefault();
+}
+
+function drop(event) {
+    // event.preventDefault();
+    const topbarscroller = document.getElementById("topbarscroller")
+    const childnode = topbarscroller.children[0]
+    const clientX = event.dataTransfer.getData('clientX')
+    const offsetX = event.dataTransfer.getData('offsetX')
+    console.log(`clientX: ${clientX}, offsetX: ${offsetX}`);
+    if (offsetX < 1000) {
+        childnode.style.transform = `translateX(${0}px)`;
+    } else {
+        childnode.style.transform = `translateX(${-offsetX}px)`;
+    }
+}
+
+(function () {
+    const toparrowleft = document.getElementById('topbar-arrow-left')
+    const toparrowright = document.getElementById('topbar-arrow-right')
+    toparrowleft.addEventListener('click', function () {
+        if (translateX === -1000 ) return;
+        const topbarscroller = document.getElementById("topbarscroller")
+        const childnode = topbarscroller.children[0]
+        translateX -= 200;
+        childnode.style.transform = `translateX(${translateX}px)`;
+    })
+
+    toparrowright.addEventListener('click', function () {
+        if (translateX === 0 ) return;
+        const topbarscroller = document.getElementById("topbarscroller")
+        const childnode = topbarscroller.children[0]
+        translateX += 200;
+        childnode.style.transform = `translateX(${translateX}px)`;
+    })
+})()

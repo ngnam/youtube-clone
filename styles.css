@@ -44,11 +44,64 @@ aside {
     margin-left: 240px;
 }
 
+.topbar-arrow {
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    background: #fff;
+    opacity: .85;
+    user-select: none;
+    cursor: pointer;
+    position: absolute;
+    z-index: 100;
+}
+
+.topbar-arrow-left {
+    left: 0;
+}
+
+.topbar-arrow-right {
+    right: 0;
+}
+
 .topbar-container {
     position: sticky;
     top: 57px;
     z-index: 99;
     opacity: .85;
+}
+
+.scroll-container {
+    position: relative;
+    white-space: nowrap;
+    overflow: hidden;
+    touch-action: pan-y;
+    max-width: 1663px;
+    padding: 0 55px;
+}
+
+.topbar-container .topbar-content {
+    min-height: 24px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    width: 100%;
+    transform: translateX(0px);
+    transition-property: transform, opacity;
+    transition-delay: 0.5ms;
+}
+
+.topbar-container .topbar-content > li {
+    padding: 0.5em;
+}
+
+.topbar-container .topbar-content > li > span {
+    padding: 0.5em 0.75em;
+    font-size: 1em;
+    font-weight: 500;
+    user-select: none;
 }
 
 .ytd-video-meta-block {
@@ -72,6 +125,7 @@ aside {
 #preview > #item-preview {
     position: absolute;
     display: none;
+    z-index: 98;
 }
 
 .item.preview {
