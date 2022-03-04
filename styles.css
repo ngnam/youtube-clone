@@ -374,3 +374,15 @@ body.lock-scrollbar {
   left: 0;
   right: 0;
 }
+
+.bg-dark-custom {
+  --bs-bg-opacity: .9;
+  background-color: rgba(var(--bs-dark-rgb),var(--bs-bg-opacity))!important;
+}
+
+
+.bg-dark-custom-2 {
+  --bs-bg-opacity: .75;
+  --bs-dark-rgb: 92, 92, 92;
+  background-color: rgba(var(--bs-dark-rgb),var(--bs-bg-opacity))!important;
+}
