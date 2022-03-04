@@ -68,4 +68,17 @@ function drop(event) {
         translateX += 200;
         childnode.style.transform = `translateX(${translateX}px)`;
     })
-})()
+})();
+
+(function () {
+    const sidebar = document.getElementById("sidebar");
+    const navsidebar = document.getElementById("nav-sidebar");
+    const pagecontent = document.getElementById("page-content");
+    const topbarscroller = document.getElementById("topbarscroller")
+    navsidebar.addEventListener('click', function () {
+        console.log(sidebar);
+        sidebar.classList.toggle("mini");
+        pagecontent.classList.toggle('mini')
+        topbarscroller.classList.toggle('mini')
+    })
+})();
