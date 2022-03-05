@@ -290,6 +290,10 @@ a {
   padding: 0.5em 1.5em;
   align-items: center;
   font-size: 14px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  max-width: 240px;
 }
 
 aside.mini .sidebar-menu > li > a {
@@ -329,11 +333,18 @@ aside.mini .sidebar-menu > li > a {
   margin-right: 1em;
 }
 
+.sidebar-menu > li > a > .menu-text {
+  width: 100%;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
 aside.mini .sidebar-menu > li > a > .menu-icon {
   margin-right: 0;
 }
 
-aside.mini .sidebar-menu > li > a > .ms-auto {
+aside.mini .sidebar-menu > li > a > .menu-last {
   display: none;
 }
 
@@ -347,7 +358,7 @@ aside.mini .sidebar-menu > li > a > .ms-auto {
   height: 4px;
   border-radius: 50%;
   background-color: var(--bs-blue);
-  margin: 0 10px;
+  margin: 0 6px;
 }
 
 #page-content.mini {
